@@ -1,0 +1,52 @@
+{
+    "name": "cortex/support",
+    "type": "cortex-module",
+    "description": "Core helper methods and foundation code for all Cortex packages.",
+    "license": "MIT",
+    "homepage": "https://rinvex.com",
+    "support": {
+        "email": "help@rinvex.com",
+        "source": "https://github.com/rinvex/cortex-support",
+        "issues": "https://github.com/rinvex/cortex-support/issues"
+    },
+    "require": {
+        "php": "^8.3.0",
+        "blade-ui-kit/blade-heroicons": "^2.5.0",
+        "danharrin/livewire-rate-limiting": "^0.3|^1.0|^2.0",
+        "ext-intl": "*",
+        "illuminate/contracts": "^11.0.0 || ^12.0.0",
+        "illuminate/support": "^11.0.0 || ^12.0.0",
+        "illuminate/view": "^11.0.0 || ^12.0.0",
+        "kirschbaum-development/eloquent-power-joins": "^4.0.0",
+        "league/uri-components": "^7.0",
+        "livewire/livewire": "^3.5.0",
+        "nette/php-generator": "^4.0.0",
+        "ryangjchandler/blade-capture-directive": "^1.0.0",
+        "spatie/invade": "^1.0|^2.0",
+        "rinvex/laravel-packages": "^11.0.0",
+        "symfony/html-sanitizer": "^7.0.0",
+        "symfony/console": "^7.0.0"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Cortex\\Support\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cortex\\Support\\Providers\\SupportServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

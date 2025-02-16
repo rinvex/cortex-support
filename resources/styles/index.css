@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@import '../../../support/resources/styles/tailwind.css';
+
+@layer components {
+    @import '../styles/components/actions.css';
+    @import '../styles/components/avatar.css';
+    @import '../styles/components/badge.css';
+    @import '../styles/components/breadcrumbs.css';
+    @import '../styles/components/button.css';
+    @import '../styles/components/dropdown/header.css';
+    @import '../styles/components/dropdown/index.css';
+    @import '../styles/components/dropdown/list/index.css';
+    @import '../styles/components/dropdown/list/item.css';
+    @import '../styles/components/fieldset.css';
+    @import '../styles/components/grid.css';
+    @import '../styles/components/icon.css';
+    @import '../styles/components/icon-button.css';
+    @import '../styles/components/input/checkbox.css';
+    @import '../styles/components/input/index.css';
+    @import '../styles/components/input/one-time-code.css';
+    @import '../styles/components/input/radio.css';
+    @import '../styles/components/input/select.css';
+    @import '../styles/components/input/wrapper.css';
+    @import '../styles/components/link.css';
+    @import '../styles/components/loading-indicator.css';
+    @import '../styles/components/loading-section.css';
+    @import '../styles/components/modal.css';
+    @import '../styles/components/pagination.css';
+    @import '../styles/components/section.css';
+    @import '../styles/components/toggle.css';
+
+    @import 'tippy.js/dist/tippy.css';
+    @import 'tippy.js/themes/light.css';
+    @import '../styles/sortable.css';
+}

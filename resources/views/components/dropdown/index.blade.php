@@ -1,0 +1,70 @@
+@props([
+    'availableHeight' => null,
+    'availableWidth' => null,
+    'flip' => true,
+    'maxHeight' => null,
+    'offset' => 8,
+    'placement' => null,
+    'shift' => false,
+    'size' => false,
+    'sizePadding' => 16,
+    'teleport' => false,
+    'trigger' => null,
+    'width' => null,
+])
+
+@php
+    use Cortex\Support\Enums\Width;
+
+    $sizeConfig = collect([
+        'availableHeight' => $availableHeight,
+        'availableWidth' => $availableWidth,
+        'padding' => $sizePadding,
+    ])->filter()->toJson();
+
+    if (! ($width instanceof Width)) {
+        $width = Width::tryFrom($width) ?? $width;
+    }
+@endphp
+
+<div
+    @if (cortex()->getCurrentOrDefaultPanel()->hasSpaMode())
+        {{-- format-ignore-start --}}x-load="visible || event (x-modal-opened)" {{-- format-ignore-end --}}
+    @else
+        x-load
+    @endif
+
+    x-data="cortexDropdown"
+    {{ $attributes->class(['fi-dropdown']) }}
+>
+    <div
+        x-on:click="toggle"
+        {{ $trigger->attributes->class(['fi-dropdown-trigger']) }}
+    >
+        {{ $trigger }}
+    </div>
+
+    @if (! \Cortex\Support\is_slot_empty($slot))
+        <div
+            x-cloak
+            x-float{{ $placement ? ".placement.{$placement}" : '' }}{{ $size ? '.size' : '' }}{{ $flip ? '.flip' : '' }}{{ $shift ? '.shift' : '' }}{{ $teleport ? '.teleport' : '' }}{{ $offset ? '.offset' : '' }}="{ offset: {{ $offset }}, {{ $size ? ('size: ' . $sizeConfig) : '' }} }"
+            x-ref="panel"
+            x-transition:enter-start="fi-opacity-0"
+            x-transition:leave-end="fi-opacity-0"
+            @if ($attributes->has('wire:key'))
+                wire:ignore.self
+                wire:key="{{ $attributes->get('wire:key') }}.panel"
+            @endif
+            @class([
+                'fi-dropdown-panel',
+                ($width instanceof Width) ? "fi-width-{$width->value}" : (is_string($width) ? $width : 'fi-width-default'),
+                'fi-scrollable' => $maxHeight || $size,
+            ])
+            @style([
+                "max-height: {$maxHeight}" => $maxHeight,
+            ])
+        >
+            {{ $slot }}
+        </div>
+    @endif
+</div>
