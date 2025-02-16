@@ -1,0 +1,7 @@
+.fi-select-input {
+    @apply block w-full border-none bg-transparent py-1.5 ps-3 pe-8 text-base text-secondary-950 transition duration-75 focus:ring-0 disabled:text-secondary-500 disabled:[-webkit-text-fill-color:var(--color-secondary-500)] sm:text-sm sm:leading-6 dark:text-white dark:disabled:text-secondary-400 dark:disabled:[-webkit-text-fill-color:var(--color-secondary-400)] [&_optgroup]:bg-white [&_optgroup]:dark:bg-secondary-900 [&_option]:bg-white [&_option]:dark:bg-secondary-900;
+
+    &.fi-select-input-has-inline-prefix {
+        @apply ps-0;
+    }
+}
