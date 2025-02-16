@@ -1,2 +1,1 @@
-@import 'tailwindcss';
-@import '../../../support/resources/styles/tailwind.css';
+@reference '../../../panels/resources/styles/theme.css';
